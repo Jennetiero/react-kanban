@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC } from 'react'
 
-function App() {
+import Sidebar from './components/Sidebar/Sidebar'
+import Tools from './components/Tools/Tools'
+import styled from "styled-components";
+import { GlobalStyle } from './styles/global';
+import NavbarMenu from './components/Navbar/Navbar';
+import Schedule from './components/Schedule/Schedule';
+
+const App: FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <GlobalStyle />
+        <Container>
+          <Sidebar />
+          <Tools />
+          <Box>
+            <NavbarMenu />
+            <Schedule />
+          </Box>
+        </Container>
+    </>
+  )
 }
 
-export default App;
+const Box = styled.div`
+  height: 100vh;
+`
+const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  margin-right: auto;
+  margin-left: auto;
+`
+
+export default App
